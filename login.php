@@ -32,5 +32,14 @@
 	if (isset($_POST['login'])) {
 		$user = $_POST['user'];
 		$pass = $_POST['pass'];
+
+		$sql = "SELECT * FROM akunmhs WHERE username = '$user' AND pass = '$pass'";
+		$query = mysqli_query($conn, $sql);
+
+		if ($query) {
+			header("Location: form.php");
+		}else{
+			echo "Gagal LOGIN";
+		}
 	}
 ?>
